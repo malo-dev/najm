@@ -1,0 +1,28 @@
+.inputSearch{
+	position: relative;
+	top: 25px;
+}
+.inpu {
+	width: 500px;
+	height: 40px;
+	border: 2px solid #DE5545;
+	position: relative;
+	bottom: 2px;
+}
+.inpu::placeholder{
+	font-weight: bold;
+	font-size: larger;
+}
+.btn-rechercher{
+	width: 150px;
+	height: 40px;
+	border: 2px solid #DE5545;
+	background-color: #6495ED;
+	color: #fff;
+	font-weight: bold;
+	font-size: larger;
+	cursor: pointer;
+}
+.btn-rechercher:hover{
+	background-color: #DE5545;
+}

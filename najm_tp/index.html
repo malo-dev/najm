@@ -16,86 +16,60 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="./assets/css/main.css" />
+		<link rel="stylesheet" href="./assets/css/inputSeacrh.css" />
+		<link rel="stylesheet" href="./assets/css/presentation.css" />
+		<link rel="stylesheet" href="./assets/css/application_card.css" />
 
 		<script type="module" src="./assets/script/main.mjs"></script>
 	</head>
 	<body>
-		<header class="top-nav">
+		<div style="display: flex; flex-direction: row; gap: 120;">
+			<div class="top-nav">
 			<img src="assets/images/logo-montreal.jpg" />
-			<label>Arts public Montreal</label>
-		</header>
-		<main>
-			<div>
-				<label class="top-nav label">
-					<h3>
-						Bonjour et bienvenue sur le site de présentation des
-						Arts public de Montreal
-					</h3>
-				</label>
-				<label class="top-nav label">
-					<h3>
-						Voulez vous voir les informations en grille ou en liste
-						?
-					</h3>
-				</label>
-				<label class="top-nav label">
-					<h3>
-						<span
-							>Nous affichons les informations avec les numéros
-							internes.</span
-						>
-					</h3>
-				</label>
-			</div>
-			<aside class="recherche">
-				<input
+		</div>
+		
+		
+		
+				<div style="position: relative;left: 320px" class="inputSearch">
+					<input
 					type="search"
 					name="champs-rechercher"
 					placeholder="votre recherche"
+					class="inpu"
 				/><button class="btn-rechercher">Rechercher</button>
-			</aside>
-			<aside class="filtre">
-				<div class="controle">
-					<header>Filtre à appliquer</header>
-					<section class="liste-categorie">
-						<div>
-							<li
-								class="choixFiltre"
-								data-js-cat="release_date"
-								data-js-cat-valeur="1986"
-								data-js-actif="0"
-							>
-								1986
-							</li>
-							<li
-								class="choixFiltre"
-								data-js-cat="release_date"
-								data-js-cat-valeur="1988"
-								data-js-actif="1"
-							>
-								1988
-							</li>
-							<li
-								class="choixFiltre"
-								data-js-cat="release_date"
-								data-js-cat-valeur="1989"
-								data-js-actif="0"
-							>
-								1989
-							</li>
-							<li
-								class="choixFiltre"
-								data-js-cat="release_date"
-								data-js-cat-valeur="1992"
-								data-js-actif="0"
-							>
-								1992
-							</li>
-						</div>
-					</section>
 				</div>
-			</aside>
+			
+		</div>
+		
+		
+				<section>
+					
+					
+		<main>
+			<div class="presentation">
+				
+					<p>
+						Bonjour et bienvenue sur le site de présentation des
+						Arts public de Montreal
+					</p>
+			
+				
+					<p>
+						Voulez vous voir les informations en grille ou en liste
+						?
+					</p>
+					<p>Nous affichons les informations avec les numéros
+							internes.</p>
+					
+			
+				
+			</div>
 
+
+		<section class="ascAnddesc">
+			<button class="asc">Ascendant</button>
+			<button class="desc">Descendant</button>
+		</section>
 			<div class="wrapper">
 				<input
 					type="radio"
@@ -117,8 +91,10 @@
 					>Sous forme de liste</label
 				>
 			</div>
+	
 
-			<section class="arts"></section>
+			<section class="arts"></section>t
+		
 			<div class="modal"></div>
 		</main>
 	</body>
