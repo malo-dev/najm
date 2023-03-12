@@ -166,12 +166,9 @@ export default class ArtPublic {
             return b-a
         }).forEach((aPublicArt) => {
 			chaineHTML += `
-            <ul id="artsGrid>
-                <li><button id="${aPublicArt.NoInterne}" value="${aPublicArt.NoInterne}">${aPublicArt.NoInterne}
+              <ul id="artsGrid">
+                <li><button id="${aPublicArt.NoInterne}" value="${aPublicArt.NoInterne}">${aPublicArt.Titre}
                 </button>
-                <ul>
-               
-                </ul>
                 </li>
             </ul>
             `;
@@ -188,9 +185,10 @@ export default class ArtPublic {
 		let chaineHTML = "";
 		this.#aArtsPublics.forEach((aPublicArt) => {
 			chaineHTML += `
-            <div id="artsGrid">
-                <button id="${aPublicArt.NoInterne}" value="${aPublicArt.NoInterne}">${aPublicArt.NoInterne}
+              <div id="artsGrid" class="divd">
+                <p><button id="${aPublicArt.NoInterne}" value="${aPublicArt.NoInterne}">${aPublicArt.Titre}
                 </button>
+                </p>
             </div>`;
 		});
 
@@ -202,7 +200,7 @@ export default class ArtPublic {
 		const selectedArt = this.#aArtsPublics.forEach((aPublicArt) => {
 			if (aPublicArt.NoInterne == artInternNumber) {
 				chaineHTML += `
-                  <header class="container">
+                  <header class="containers">
                
                    
                         <p >Titre :  <span >${aPublicArt.Titre}</span></p>
