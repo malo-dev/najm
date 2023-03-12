@@ -169,12 +169,19 @@ export default class ArtPublic {
             <ul id="artsGrid>
                 <li><button id="${aPublicArt.NoInterne}" value="${aPublicArt.NoInterne}">${aPublicArt.NoInterne}
                 </button>
+                <ul>
+               
+                </ul>
                 </li>
             </ul>
             `;
-		});
+        });
+        
+        
+        
 
-		this.domParent.innerHTML = chaineHTML;
+        this.domParent.innerHTML = chaineHTML;
+        console.log(this.domParent)
     }
     
     afficherMontrealArtsPublicsListe() {
@@ -195,34 +202,19 @@ export default class ArtPublic {
 		const selectedArt = this.#aArtsPublics.forEach((aPublicArt) => {
 			if (aPublicArt.NoInterne == artInternNumber) {
 				chaineHTML += `
-                <table border="1">
-                <thead>
-                    <tr>
-                        <th colspan="2">Titre</th>
-                        <th colspan="2">Nom de collection</th>
-                        <th colspan="2">Categorie Object</th>
-                        <th colspan="2">Sous categorie object</th>
-                        <th colspan="2">Matériaux</th>
-                        <th colspan="2">Technique</th>
-                        <th colspan="2">Parc</th>
-                        <th colspan="2">CoordonneeLatitude</th>
-                        <th colspan="2">CoordonneeLongitude</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="2">${aPublicArt.Titre}</td>
-                        <td colspan="2">${aPublicArt.NomCollection}</td>
-                        <td colspan="2">${aPublicArt.CategorieObjet}</td>
-                        <td colspan="2">${aPublicArt.SousCategorieObjet}</td>
-                        <td colspan="2">${aPublicArt.Materiaux}</td>
-                        <td colspan="2">${aPublicArt.Technique}</td>
-                        <td colspan="2">${aPublicArt.Parc}</td>
-                        <td colspan="2">${aPublicArt.CoordonneeLatitude}</td>
-                        <td colspan="2">${aPublicArt.CoordonneeLongitude}</td>    
-                    </tr>
-                </tbody>
-            </table>
+                  <header class="container">
+               
+                   
+                        <p >Titre :  <span >${aPublicArt.Titre}</span></p>
+                        <p >Nom de collection :  <span >${aPublicArt.NomCollection}</span></p>
+                        <p >Categorie Object :  <span >${aPublicArt.CategorieObjet}</span></p>
+                        <p >Sous categorie object : <span >${aPublicArt.SousCategorieObjet}</span></p>
+                        <p >Matériaux :  <span >${aPublicArt.Materiaux}</span></p>
+                        <p >Technique : <span >${aPublicArt.Technique}</span></p>
+                        <p >Parc :  <span >${aPublicArt.Parc}</span></p>
+                        <p >CoordonneeLatitude  : <span >${aPublicArt.CoordonneeLatitude}</span></p>
+                        <p >CoordonneeLongitude : <span >${aPublicArt.CoordonneeLongitude}</span> </p>  
+            </header>
                 `;
 			}
 		});
@@ -239,34 +231,19 @@ export default class ArtPublic {
 				aPublicArt.sousCategorieObjet == sousCategorieObjet
 			) {
 				chaineHTML += `
-                <table border="1">
-                <thead>
-                    <tr>
-                        <th colspan="2">Titre</th>
-                        <th colspan="2">Nom de collection</th>
-                        <th colspan="2">Categorie Object</th>
-                        <th colspan="2">Sous categorie object</th>
-                        <th colspan="2">Matériaux</th>
-                        <th colspan="2">Technique</th>
-                        <th colspan="2">Parc</th>
-                        <th colspan="2">CoordonneeLatitude</th>
-                        <th colspan="2">CoordonneeLongitude</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="2">${aPublicArt.Titre}</td>
-                        <td colspan="2">${aPublicArt.NomCollection}</td>
-                        <td colspan="2">${aPublicArt.CategorieObjet}</td>
-                        <td colspan="2">${aPublicArt.SousCategorieObjet}</td>
-                        <td colspan="2">${aPublicArt.Materiaux}</td>
-                        <td colspan="2">${aPublicArt.Technique}</td>
-                        <td colspan="2">${aPublicArt.Parc}</td>
-                        <td colspan="2">${aPublicArt.CoordonneeLatitude}</td>
-                        <td colspan="2">${aPublicArt.CoordonneeLongitude}</td>    
-                    </tr>
-                </tbody>
-            </table>
+                <div class="container">
+               
+                   
+                        <p >Titre :  <span >${aPublicArt.Titre}</span></p>
+                        <p >Nom de collection :  <span >${aPublicArt.NomCollection}</span></p>
+                        <p >Categorie Object :  <span >${aPublicArt.CategorieObjet}</span></p>
+                        <p >Sous categorie object : <span >${aPublicArt.SousCategorieObjet}</span></p>
+                        <p >Matériaux :  <span >${aPublicArt.Materiaux}</span></p>
+                        <p >Technique : <span >${aPublicArt.Technique}</span></p>
+                        <p >Parc :  <span >${aPublicArt.Parc}</span></p>
+                        <p >CoordonneeLatitude  : <span >${aPublicArt.CoordonneeLatitude}</span></p>
+                        <p >CoordonneeLongitude : <span >${aPublicArt.CoordonneeLongitude}</span> </p>  
+            </div>
                 `;
 			}
 		});

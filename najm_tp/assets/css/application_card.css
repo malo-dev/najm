@@ -1,3 +1,8 @@
-.artsGrid{
-	background-color: red;
+.arts #artsGrid li {
+	background-color: #dba6a4;
+	height: 250px;
+	width: 560px;
+	display: flex;
+	flex-direction: row;
+	
 }
