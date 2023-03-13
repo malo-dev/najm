@@ -1,4 +1,4 @@
-export default class Filtre {
+export default class Filtre{
     #listeValeur = [];
 
     constructor(domParent, donneesInitiale){
@@ -10,9 +10,18 @@ export default class Filtre {
     genererFiltre(donnees){
         console.log(donnees);
         this.#listeValeur = donnees.map((unFilm)=>{
-            return unFilm.release_date;
+            return unFilm.generic;
         })
-        console.log(this.#listeValeur);
+        // console.log(this.#listeValeur);
+
+        this.#listeValeur = [...new Set(this.#listeValeur)];
+        this.afficher();
+    }
+      genererFiltres(donnees){
+        this.#listeValeur = donnees.map((unFilm)=>{
+            return unFilm.types[0];
+        })
+        // console.log(this.#listeValeur);
 
         this.#listeValeur = [...new Set(this.#listeValeur)];
         this.afficher();
@@ -57,8 +66,8 @@ export default class Filtre {
     }
 
     afficher() {
-        console.log(this.#listeValeur);
-        let chaineHTML = `<div><span>Date de sortie<span class="material-icons">arrow_drop_down</span></span>`;
+        // console.log("value " + this.#listeValeur);
+        let chaineHTML = `<div><span>Filtrer selon generic<span class="material-icons">arrow_drop_down</span></span>`;
         this.#listeValeur.forEach((uneValeur)=>{
             chaineHTML += `<li class="choixFiltre" data-js-cat="release_date" data-js-cat-valeur="${uneValeur}" data-js-actif="0">${uneValeur}</li>`;
         })
@@ -67,12 +76,30 @@ export default class Filtre {
         const temps = ["0-79", "80-89", "90-99", "100-109", "110-119", "120-+"];
         chaineHTML += `<div><span>Durée<span class="material-icons">arrow_drop_down</span></span>`;
         temps.forEach((uneValeur)=>{
-            chaineHTML += `<li class="choixFiltre" data-js-cat="running_time" data-js-cat-valeur="${uneValeur}" data-js-actif="0">${uneValeur}</li>`;
+            chaineHTML += `<li class="choixFiltre" data-js-cat="running_time" data-js-cat-valeur="${uneValeur}" data-js-actif="0">${uneValeur.jsCatValeur}</li>`;
         })
         chaineHTML += `</div>`;
 
         this.domParent.innerHTML = chaineHTML;
         
     }
+    
+    affichers() {
+        // console.log("value " + this.#listeValeur);
+        let chaineHTML = `<div><span>Filtrer selon generic<span class="material-icons">arrow_drop_down</span></span>`;
+        this.#listeValeur.forEach((uneValeur)=>{
+            chaineHTML += `<li class="choixFiltre" data-js-cat="release_date" data-js-cat-valeur="${uneValeur}" data-js-actif="0">${uneValeur}</li>`;
+        })
+        chaineHTML += `</div>`;
 
+        const temps = ["0-79", "80-89", "90-99", "100-109", "110-119", "120-+"];
+        chaineHTML += `<div><span>Durée<span class="material-icons">arrow_drop_down</span></span>`;
+        temps.forEach((uneValeur)=>{
+            chaineHTML += `<li class="choixFiltre" data-js-cat="running_time" data-js-cat-valeur="${uneValeur}" data-js-actif="0">${uneValeur.jsCatValeur}</li>`;
+        })
+        chaineHTML += `</div>`;
+
+        this.domParent.innerHTML = chaineHTML;
+        
+    }
 }
