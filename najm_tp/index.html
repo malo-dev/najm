@@ -4,56 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le studio Ghibli</title>
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    
-    <script type="module" src="./assets/script/main.mjs"></script>
+    <title>MontReal</title>
+    <!-- Box-icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header class="top-nav">
-        <span class="logo"><a href="#">Le studio Ghibli</a></span>
-        <span class="filler"></span>
-        <nav class="menuPrincipal">
-           <a href="#">Item 1</a>
-           <a href="#">Item 2</a>
-           <a href="#">Item 3</a>
-           <a href="#">Item 4</a>
-        </nav>
-        
-    </header> 
-    <main>
-        <aside class="recherche">
-            <input class="search" type="search" name="champs-rechercher" placeholder="votre recherche"><button class="btn-rechercher">Rechercher</button>
-        </aside>
-        <aside class="filtre">            
-            <div class="controle">
-                <header><span class="material-icons">tune</span>Filtre à appliquer</header>
-                <section class="liste-categorie">
-                    <div><span>Date de sortie<span class="material-icons">arrow_drop_down</span></span>
-                        <li class="choixFiltre" data-js-cat="release_date" data-js-cat-valeur="1986" data-js-actif="0">1986</li>
-                        <li class="choixFiltre" data-js-cat="release_date" data-js-cat-valeur="1988" data-js-actif="1">1988</li>
-                        <li class="choixFiltre" data-js-cat="release_date" data-js-cat-valeur="1989" data-js-actif="0">1989</li>
-                        <li class="choixFiltre" data-js-cat="release_date" data-js-cat-valeur="1992" data-js-actif="0">1992</li>
-                    </div>
-                    <div><span>longueur<span class="material-icons">arrow_drop_down</span></span>
-                        <li class="choixFiltre" data-js-cat="running_time" data-js-cat-valeur="124" data-js-actif="0">124</li>
-                        <li class="choixFiltre" data-js-cat="running_time" data-js-cat-valeur="89" data-js-actif="1">89</li>
-                        <li class="choixFiltre" data-js-cat="running_time" data-js-cat-valeur="86" data-js-actif="0">86</li>
-                    
+    <header>
+        <div class="nav container">
+            <a href="#" class="logo">Mont<span>Real</span></a>
+<div>
+                
+            <input type="search" name="" value="" class="in" placeholder="RECHERCHER UNE VILLE DE MONTREAL">
+<button  type="button" class="login">Rechercher</button>
+
+
+        </div>
+        <div>
             
-                </section>
-            </div>
-            <div>
-                Appliqué : 
-            </div>
-        
-        </aside>
-        <section class="catalogue">
-        </section>
-    </main>
+<button  type="button" class="login order">Ordre ascendant</button>
+<button  type="button" class="login order orders">Ordre Descendant</button>
+
+        </div>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-text container">
+            <h2 class="home-title">Visitez la ville de MontReal </h2>
+            <span class="home-subtitle">Et Prendre des informations sur la ville de MontReal</span>
+        </div>
+    </section>
+ 
+    <div class="post-filter container">
+        <span>Filtrer selon les zones : </span>
+        <span class="filter-item active-filter" data-filter="all">Tous voir</span>
+        <span class="filter-item avenue" data-filter="tech">avenue</span>
+        <span class="filter-item parc" data-filter="food">parc</span>
+        <span class="filter-item rue" data-filter="news">rue</span>
+         <span class="filter-item square" data-filter="news">square</span>
+    </div>
+    <div class="post container">
+     
+    </div>
+
+
+    <script type="module" src="./assets/script/main.js"></script>
 </body>
 </html>

@@ -1,75 +1,81 @@
-import {dataGhibli} from "../data/film.js";
-import Catalogue from "./Catalogue.mjs";
-import Filtre from "./Filtre.mjs";
-import Recherchers from "./Recherche.mjs";
+import Affiche from "./Affiche.mjs";
+import { dataGhibli } from '../data/film.js'
+import Rechercher from "./rechercher.mjs";
+import Filter from "./Filter.mjs";
 
+export default class Application {
+	#val;
+	#affiche;
+	#recherche;
+	#filter;
+	constructor() {
+		
+		let handlesearch = document.querySelector('.in')
+		let handleClickBtn = document.querySelector('.login')
+		this.#affiche = new Affiche(document.querySelector('.post'), dataGhibli)
+		this.#recherche = new Rechercher(document.querySelector('.post'),dataGhibli)
+		this.#affiche.afficher()
+				this.#filter= new Filter(document.querySelector('.post'),dataGhibli)
+		
+		handleClickBtn.addEventListener("click", this.handleClick.bind(this));
+		handlesearch.addEventListener("change", this.handleChange.bind(this));
+		
+		// this.#filter.FilterData()
+		document.querySelector('.order').addEventListener("click", this.handleClickAsc.bind(this));
+				document.querySelector('.orders').addEventListener("click", this.handleClickDesc.bind(this));
+		// filter button vont ici
+		
+				document.querySelector('.active-filter').addEventListener("click", this.handleClickactive.bind(this));
+		document.querySelector('.avenue').addEventListener("click", this.handleavenue.bind(this));
+				document.querySelector('.parc').addEventListener("click", this.handleparc.bind(this));
+		document.querySelector('.rue').addEventListener("click", this.handlerue.bind(this));
+				document.querySelector('.square').addEventListener("click", this.handleSquare.bind(this));
+		
 
+// window.addEventListener("scroll", () => {
+//     header.classList.toggle("shadow", window.scrollY > 0)
+// })
+		
+		// filter function
+		
 
-
-export default class Application{
-    #valueInput;
-    #recherche;
-    #catalogue;
-    #filtre;
-    constructor(){
-        const domCatalogue = document.querySelector(".catalogue"); 
-        this.#catalogue = new Catalogue(domCatalogue);
-        this.#recherche = new Recherchers(domCatalogue,dataGhibli);
-        
-        dataGhibli.forEach((unFilm)=>{
-            unFilm.dureeHeure = parseInt(unFilm.running_time / 60) + "h"+parseInt(unFilm.running_time % 60).toString().padStart(2, '0');
-        })
-
-        this.#catalogue.setFilms(dataGhibli);
-
-        this.#catalogue.afficher();
-
-        let sectionFiltre = document.querySelector(".liste-categorie");
-        let inputSeacrch = document.querySelector(".search");
-        let BtnSearch = document.querySelector(".btn-rechercher");
-        this.#filtre = new Filtre(sectionFiltre, dataGhibli);
-        sectionFiltre.addEventListener("click", this.appliquerFiltre.bind(this));
-        inputSeacrch.addEventListener("click", this.handleChange.bind(this));
-        BtnSearch.addEventListener("click", this.handleClick.bind(this));
-    }
-    
-    
-    
-    handleChange(evt){
-        this.#valueInput = evt.target.value
-    }
-    handleClick(evt){
-        evt.preventDefault();
-        this.#recherche.Rechercher(this.#valueInput)
-    }
-
-    appliquerFiltre(evt){
-        let mesFilms;
-        if(evt.target.classList.contains("choixFiltre")){
-            console.log(evt.target.dataset);
-            
-            const cat = evt.target.dataset.jsCat;
-            const valeur = evt.target.dataset.jsCatValeur;
-            const eleActif = document.querySelector(".filtre [data-js-actif='1']");
-            if(eleActif){               
-                eleActif.dataset.jsActif = 0;
-            }
-            
-            if(eleActif == evt.target){
-                console.log("actif")    
-                mesFilms = dataGhibli;
-            }
-            else{
-                evt.target.dataset.jsActif = 1;
-                mesFilms = this.#filtre.appliquerFiltre(cat, valeur, dataGhibli)
-            }
-            //const mesFilms = this.#filtre.appliquerFiltre("running_time", "90-100", dataGhibli)
-           
-            
-            console.log(mesFilms)
-            this.#catalogue.setFilms(mesFilms);
-            this.#catalogue.afficher();
-        }
-    }
+	}
+	
+	handleClickDesc() {
+		this.#affiche.afficher()
+	}
+	handleClickAsc() {
+		this.#affiche.afficherAsc()
+	}
+	
+	handleChange(evt) {
+		this.#val = evt.target.value
+	}
+	handleClickactive() {
+			
+			this.#affiche.afficher()
+	}
+	handleavenue() {
+		this.#filter.FilterAfficheData("avenue")
+	}
+	handleparc() {
+		
+		this.#filter.FilterAfficheData("parc")
+	}
+	handlerue() {
+		this.#filter.FilterAfficheData("rue")
+	}
+	handleSquare() {
+		
+		this.#filter.FilterAfficheData("square")
+	}
+	
+	
+	
+	handleClick(ev) {
+		ev.preventDefault()
+		console.log(this.#val)
+		this.#recherche.rechercher(this.#val)
+	}
 
 }
